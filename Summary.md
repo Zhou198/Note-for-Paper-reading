@@ -12,7 +12,7 @@ Our goal is to
 
 $$\min \frac{1}{n}\sum\limits_{i=1}^n \mathbf{L}(\mathbf{y_i}) \cdot(\mathbf{f}{(\mathbf{x_i})-\mathbf{y_i})\_{+}}+\frac{1}{2}\lambda\sum\limits_{j=1}^k\left\|\|h_j\|\right\|^2_{H_k},$$ 
 
-where $f_j(\mathbf{x_i})=h_j(\mathbf{x_i})+b_j$ and $\mathbf{L}(\mathbf{y_i})$ is a cost vector, where each entrie is a cost of classfying $y_i$ as label $j$'s. Note, $\mathbf{y_i}$ is a code vector, where $j$-th entry is $+1$ and remining are $-\frac{1}{k-1}$ if this observation $x_i$ is label as class $j$.
+where $f_j(\mathbf{x_i})=h_j(\mathbf{x_i})+b_j$ and $\mathbf{L}(\mathbf{y_i})$ is a cost vector with each entrie a cost of classfying $y_i$ as label $j$'s. Note, $\mathbf{y_i}$ is a code vector, where $j$-th entry is $+1$ and remining are $-\frac{1}{k-1}$ if this observation $x_i$ is label as class $j$. This implies $\sum\limits_{j=1}^k y_{ij}=0$.
 
 This appraoch unifies both standard cases and unstandard cases. In standard cases, cost $c_{ij}$ of classfying label $i$ as $j$ are same for each $j=1, 2, \cdots, k$ and $j\neq i$, of course $c_{ii}=0$. Moreover, there is no bias in sampling, which means porpotion of each class in training data is same to that in whole data. In unstandard cases, $c_{ij}$ differs in $j$'s, and maybe there are biases in sampling. Whatever, the MSVM approach can present the unified form covering above cases in loss fucntiones.
 
