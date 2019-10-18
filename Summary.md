@@ -24,6 +24,10 @@ Implenting SVMs or MSVM in an asymetotically efficient manner is dependent on ch
 
 This paper proposed not only multicategory classification problem with reject option (like on binary SVM with reject option) but also with refine option. Assume there are $k$ classes in the dataset, for observations in the reject region, the classfier spits out the whole class set $\\{1, 2, \cdots, k\\}$. For those in refine regions, it outputs a subset of the whole class set. So, there is no refine option in binary classification cases. Moreover, compared with classification with only reject option, the proposed method has more cautious prediction on the boundries among several classes, rather than just giving a definite result for points adjacent to boundries.
 
+Similiar to previous thesis, this approach also considers all classes simultaneously. However, it choose angle-based margin classification framework instead of margin-based ones because the prior is free of sum-to-0 constraint and advantageous in computation performance, especially for high-dimensional data.
+
+Let $\mathcal{Y}=(\mathcal{Y}\_1, \mathcal{Y}\_2, \cdots, \mathcal{Y}\_k)$ be a centered simplex in $\mathbb{R}^{k-1}$, $\mathcal{Y}\_j$ be surrogate coding vector for class $j$ and $\mathbf{f}\in\mathbb{R}^{k-1}$ be the classification function.
+
 
 
 
