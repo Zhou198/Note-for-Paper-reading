@@ -27,11 +27,11 @@ This paper proposed not only multicategory classification problem with reject op
 Similiar to previous thesis, this approach also considers all classes simultaneously. However, it choose angle-based margin classification framework instead of margin-based ones because the prior is free of sum-to-0 constraint and advantageous in computation performance, especially for high-dimensional data.
 
 Let $\mathcal{Y}=(\mathcal{Y}\_1, \mathcal{Y}\_2, \cdots, \mathcal{Y}\_k)$ be a centered simplex in $\mathbb{R}^{k-1}$, $\mathcal{Y}\_j$ be surrogate coding vector for class $j$ and $\mathbf{f}\in\mathbb{R}^{k-1}$ be the classification function. Then our goal is to $$\min\frac{1}{n}\sum\limits_{i=1}^n\sum\limits_{j\neq y_i}\ell\left(\left<\mathcal{Y}\_j, \mathbf{f}(x\_i)\right>\right), \text{ subject to } J(\mathbf{f})\leq s,$$
-where $\ell$ is a monotonically increasing (Remark: in binary SVMs, this is decreasing since the label multiplied with classfication function is true, which is opposite to this setting.) loss function and $s$ is the penalty for function space. The induced classifier by $\mathbf{f}$ with reject and refine option is defined as, $$\begin{aligned}{rl}
+where $\ell$ is a monotonically increasing (Remark: in binary SVMs, this is decreasing since the label multiplied with classfication function is true, which is opposite to this setting.) loss function and $s$ is the penalty for function space. The induced classifier by $\mathbf{f}$ with reject and refine option is defined as, $$\left\\{\begin{aligned}{lr}
 R if \left|\left<\mathcal{Y}\_j, \mathbf{f}\right>\right|\leq \delta, \forall j\\\\
 \arg\max \left<\mathcal{Y}\_j, \mathbf{f}\right> \left<\mathcal{Y}\_j, \mathbf{f}\right> \geq \delta, \text{ for some } j\\\\
 \\{j: \left|\left<\mathcal{Y}\_j, \mathbf{f}\right>\right|\leq \delta \text{ for some but all } j\\}
-\end{aligned}$$
+\end{aligned}\right.$$
 
 
 
