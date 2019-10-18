@@ -28,9 +28,9 @@ Similiar to previous thesis, this approach also considers all classes simultaneo
 
 Let $\mathcal{Y}=(\mathcal{Y}\_1, \mathcal{Y}\_2, \cdots, \mathcal{Y}\_k)$ be a centered simplex in $\mathbb{R}^{k-1}$, $\mathcal{Y}\_j$ be surrogate coding vector for class $j$ and $\mathbf{f}\in\mathbb{R}^{k-1}$ be the classification function. Then our goal is to $$\min\frac{1}{n}\sum\limits_{i=1}^n\sum\limits_{j\neq y_i}\ell\left(\left<\mathcal{Y}\_j, \mathbf{f}(x\_i)\right>\right), \text{ subject to } J(\mathbf{f})\leq s,$$
 where $\ell$ is a monotonically increasing (Remark: in binary SVMs, this is decreasing since the label multiplied with classfication function is true, which is opposite to this setting.) loss function and $s$ is the penalty for function space. The induced classifier by $\mathbf{\hat f}$ with reject and refine option is defined as, $$\phi\_\mathbf{\hat f}=\begin{cases}
-R \qquad \qquad \qquad \qquad\text{ if } \left|\left<\mathcal{Y}\_j, \mathbf{\hat f}\right>\right|\leq \delta, \forall j\\\\
+R \qquad \qquad \qquad \qquad \ \text{ if } \left|\left<\mathcal{Y}\_j, \mathbf{\hat f}\right>\right|\leq \delta, \forall j\\\\
 \arg\max \left<\mathcal{Y}\_j, \mathbf{\hat f}\right> \qquad \text{ if } \left<\mathcal{Y}\_j, \mathbf{\hat f}\right> \geq \delta, \text{ for some } j\\\\
-\\{j: \left|\left<\mathcal{Y}\_j, \mathbf{\hat f}\right>\right|\leq \delta \text{ for some but all } j\\}
+\left\\{j: \left|\left<\mathcal{Y}\_j, \mathbf{\hat f}\right>\right|\leq \delta \text{ for some but all } j\right\\}
 \end{cases}$$
 
 
