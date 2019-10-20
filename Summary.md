@@ -27,11 +27,13 @@ This paper proposed not only multicategory classification problem with reject op
 Similiar to previous thesis, this approach also considers all classes simultaneously. However, it choose angle-based margin classification framework instead of margin-based ones because the prior is free of sum-to-0 constraint and advantageous in computation performance, especially for high-dimensional data.
 
 Let $\mathcal{Y}=(\mathcal{Y}\_1, \mathcal{Y}\_2, \cdots, \mathcal{Y}\_k)$ be a centered simplex in $\mathbb{R}^{k-1}$, $\mathcal{Y}\_j$ be surrogate coding vector for class $j$ and $\boldsymbol{f}\in\mathbb{R}^{k-1}$ be the classification function. Then our goal is to $$\min\frac{1}{n}\sum\limits_{i=1}^n\sum\limits_{j\neq y_i}\ell\left(\left<\mathcal{Y}\_j, \boldsymbol{f}(x\_i)\right>\right), \text{ subject to } J(\boldsymbol{f})\leq s,$$
-where $\ell$ is a monotonically increasing (Remark: in binary SVMs, this is decreasing since the label multiplied with classfication function is true, which is opposite to this setting.) loss function and $s$ is the penalty for function space. The induced classifier by $\boldsymbol{\hat f}$ with reject and refine option is defined as, $$\phi\_\boldsymbol{\widehat{f}}=\begin{cases}
+where $\ell$ is a monotonically increasing (Remark: in binary SVMs, this is decreasing since the label multiplied with classfication function is true, which is opposite to this setting.) loss function and $J(\boldsymbol{f})$ is the $L_2$ or $L_1$ penalty for function space. The induced classifier by $\boldsymbol{\hat f}$ with reject and refine option is defined as, $$\phi\_\boldsymbol{\hat{f}}=\begin{cases}
 R \qquad \qquad \qquad \qquad \ \text{ if } \left|\left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right>\right|\leq \delta, \forall j\\\\
 \arg\max \left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right> \qquad \text{ if } \left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right> \geq \delta, \text{ for some } j\\\\
 \left\\{j: \left|\left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right>\right|\leq \delta \text{ for some but all } j\right\\}
 \end{cases}$$
+
+There are 3 tuning parameters we should search for, namely $a, s$ and $\delta$. Here $a$ can be determined as $\frac{d}{1-d}$ by a presetted cost $d$. Parameter $s$ restricts the function space and is searched from a grid of candidates by minimizing the $0-d-1$ loss via validation set or crossvalidation. Note $\delta$ is also obtained to minimize $0-d-1$ loss only after inducing out a classifier from $\boldsymbol{f}$. Therefore, we can set $\Lambda\times\Delta=\{\lambda_1, \lambda_2, \cdots, \lambda_r\}\times\{delta_1, \delta_2, \cdots, \delta_t\} $ at first and then find a specific combindation with minimum $0-d-1$ loss.   
 
 
 
