@@ -30,7 +30,7 @@ Let $\mathcal{Y}=(\mathcal{Y}\_1, \mathcal{Y}\_2, \cdots, \mathcal{Y}\_k)$ be a 
 where $\ell$ is a monotonically increasing (Remark: in binary SVMs, this is decreasing since the label multiplied with classfication function is true, which is opposite to this setting.) loss function and $s$ is the penalty for function space. The induced classifier by $\boldsymbol{\hat f}$ with reject and refine option is defined as, $$\phi\_\mathbf{\hat f}=\begin{cases}
 R \qquad \qquad \qquad \qquad \ \text{ if } \left|\left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right>\right|\leq \delta, \forall j\\\\
 \arg\max \left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right> \qquad \text{ if } \left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right> \geq \delta, \text{ for some } j\\\\
-\left\\{j: \left|\left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right>\right|\leq \delta \text{ for some but all } j\right\\}
+\left\\{j: \left|\left<\mathcal{Y}\_j, \hat\boldsymbol{f}\right>\right|\leq \delta \text{ for some but all } j\right\\}
 \end{cases}$$
 
 
