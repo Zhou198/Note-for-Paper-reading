@@ -1,8 +1,9 @@
+#
 ### [Support Vector Machines with a Reject Option](https://arxiv.org/pdf/1201.1140.pdf) 
 <p align="right"> Oct. 12, 2019 </p>
 
 
-
+#
 ### [Multicategory Support Vector Machines](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.129.3020&rep=rep1&type=pdf) 
 <p align="right"> Oct. 15, 2019 </p>
 
@@ -18,7 +19,7 @@ Implenting SVMs or MSVM in an asymetotically efficient manner is dependent on ch
 
 
 
-
+#
 ### [On Reject and Refine Options in Multicategoory Classification](https://arxiv.org/pdf/1701.02265.pdf) 
 <p align="right"> Oct. 17, 2019 </p>
 
