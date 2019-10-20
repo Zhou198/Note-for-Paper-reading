@@ -27,7 +27,21 @@ This paper proposed not only multicategory classification problem with reject op
 Similiar to previous thesis, this approach also considers all classes simultaneously. However, it choose angle-based margin classification framework instead of margin-based ones because the prior is free of sum-to-0 constraint and advantageous in computation performance, especially for high-dimensional data.
 
 Let $\mathcal{Y}=(\mathcal{Y}\_1, \mathcal{Y}\_2, \cdots, \mathcal{Y}\_k)$ be a centered simplex in $\mathbb{R}^{k-1}$, $\mathcal{Y}\_j$ be surrogate coding vector for class $j$ and $\boldsymbol{f}\in\mathbb{R}^{k-1}$ be the classification function. Then our goal is to $$\min\frac{1}{n}\sum\limits_{i=1}^n\sum\limits_{j\neq y_i}\ell\left(\left<\mathcal{Y}\_j, \boldsymbol{f}(x\_i)\right>\right), \text{ subject to } J(\boldsymbol{f})\leq s,$$
-where $\ell$ is a monotonically increasing (Remark: in binary SVMs, this is decreasing since the label multiplied with classfication function is true, which is opposite to this setting.) loss function and $J(\boldsymbol{f})$ is the $L_2$ or $L_1$ penalty for function space. The induced classifier by $\boldsymbol{\hat f}$ with reject and refine option is defined as, $$\phi\_\boldsymbol{\hat{f}}=\begin{cases}
+where $\ell$ is a monotonically increasing (Remark: in binary SVMs, this is decreasing since the label multiplied with classfication function is true, which is opposite to this setting.) loss function like
+
+$$\ell_{\rm SVM}(\mu)\begin{cases}
+  0, & \mbox{if}\ \mu<-1  \\\\
+  1+\mu, & \mbox{if}\ -1\leq\mu<0  \\\\
+  1+a\mu, & \mbox{otherwise}\\\\
+\end{cases} \qquad 
+\ell_{\rm DWD}(\mu)\begin{cases}
+  -\frac{1}{4\mu}, & \mbox{if}\ \mu<-0.5  \\\\
+  1+\mu, & \mbox{if}\ -0.5\leq\mu<0  \\\\
+  1+a\mu, & \mbox{otherwise}\\\\
+\end{cases}
+$$
+
+and $J(\boldsymbol{f})$ is the $L_2$ or $L_1$ penalty for function space. The induced classifier by $\boldsymbol{\hat f}$ with reject and refine option is defined as, $$\phi\_\boldsymbol{\hat{f}}=\begin{cases}
 R \qquad \qquad \qquad \qquad \ \text{ if } \left|\left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right>\right|\leq \delta, \forall j\\\\
 \arg\max \left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right> \qquad \text{ if } \left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right> \geq \delta, \text{ for some } j\\\\
 \left\\{j: \left|\left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right>\right|\leq \delta \text{ for some but all } j\right\\}
