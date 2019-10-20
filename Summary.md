@@ -48,8 +48,9 @@ R \qquad \qquad \qquad \qquad \ \text{ if } \left|\left<\mathcal{Y}\_j, \boldsym
 \left\\{j: \left|\left<\mathcal{Y}\_j, \boldsymbol{\hat f}\right>\right|\leq \delta \text{ for some but all } j\right\\}
 \end{cases}$$
 
-There are 3 tuning parameters we should search for, namely $a, s$ and $\delta$. Here $a$ can be determined as $\frac{d}{1-d}$ by a presetted cost $d$. Parameter $s$ restricts the function space and is searched from a grid of candidates by minimizing the $0$-$d$-$1$ loss (extension to misclassification rate) via validation set or crossvalidation. Note $\delta$ is also obtained to minimize $0$-$d$-$1$ loss only after inducing out a classifier from $\boldsymbol{f}$. Therefore, we can set $\Lambda\times\Delta=\\{\lambda_1, \lambda_2, \cdots, \lambda_r\\}\times\\{\delta_1, \delta_2, \cdots, \delta_t\\} $ at first and then find a specific combindation with minimum $0$-$d$-$1$ loss via tuning procedure.   
+There are 3 tuning parameters we should search for, namely $a, s$ and $\delta$. Here $a$ can be determined as $\frac{d}{1-d}$ by a presetted cost $d$. Parameter $s$ restricts the function space and is searched from a grid of candidates by minimizing the $0$-$d$-$1$ loss (extension to misclassification rate) via validation set or crossvalidation. Note $\delta$ is also obtained to minimize $0$-$d$-$1$ loss only after inducing out a classifier from $\boldsymbol{\hat f}$. Therefore, we can set $\Lambda\times\Delta=\\{\lambda_1, \lambda_2, \cdots, \lambda_r\\}\times\\{\delta_1, \delta_2, \cdots, \delta_t\\} $ at first and then find a specific combindation with minimum $0$-$d$-$1$ loss via tuning procedure.   
 
+For the part refering to convergence of the excess $\ell-$risk, which is define as $$e\left(\boldsymbol{f}, \boldsymbol{f}^{(p, k)}\right)=\mathbb{E}\left[\sum\limits_{j=Y}\ell\left\\{\left<\boldsymbol{f}(\boldsymbol{X}), \mathcal{Y}\_j\right>\right\\}\right]$$
 
 
 
