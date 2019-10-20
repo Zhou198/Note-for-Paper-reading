@@ -33,7 +33,7 @@ $$\ell_{\rm SVM}(\mu)\begin{cases}
   0, & \mbox{if}\ \mu<-1  \\\\
   1+\mu, & \mbox{if}\ -1\leq\mu<0  \\\\
   1+a\mu, & \mbox{otherwise}\\\\
-\end{cases}, \ \rm or \qquad 
+\end{cases}, \qquad \text{or} \qquad 
 \ell_{\rm DWD}(\mu)\begin{cases}
   -\frac{1}{4\mu}, & \mbox{if}\ \mu<-0.5  \\\\
   1+\mu, & \mbox{if}\ -0.5\leq\mu<0  \\\\
