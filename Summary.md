@@ -57,6 +57,22 @@ In numerical studies, compared with regular classier (outputs definite label for
 In conclusion, when the cost for misclassification is too high to bear, it may be wise to do cautiously, like, with reject and refine options. For those confusable observations in refine region, we need more information or index to give a more confident result. Moreover, many other loss functions and penalties can be incorperated into this framwork for further needs.
 
 
+#
+### [Multicategory Large-Margin Unified Machines](http://www.jmlr.org/papers/volume14/liu13a/liu13a.pdf) 
+<p align="right"> Oct. 22, 2019 </p>
+
+Soft and hard classifiers are two important methods to do classification, where the prior one focuses on the estimation of conditional probibility while the later relies on decision boundries. It is unclear to choose which one given a practice problem. Therefore, this paper proposed a method extending binary classification to multicategory problem with Large-Margine Unified Machines (MLUM), which combines the soft and hard classifiers togethor by tuning the parameter in loss function. This method reveals the transition behaviors from soft to hard method in classification problems.
+
+Because the drawback of some multicategory classification methods like, one-versus-on and one-versus-rest, this MLUM also deals with all classes simultaneously and the loss family given an observation is $$V\left(\boldsymbol{f}, y\right)=\gamma\ell\left(f\_y\left(\boldsymbol{x}\right)\right)+\left(1-\gamma\right)\sum\_{j\neq y}\ell\left(-f\_j\left(\boldsymbol{x}\right)\right),$$under sum-to-0 constraint, where $\ell\left(\mu\right)$ is loss function $$\ell(\mu)\begin{cases}
+  1-\mu, & \mbox{if}\ \mu<-1  \\\\
+  \frac{1}{1+c}\left(\frac{a}{(1+c)a-c+a}\right)^a, & \mbox{if}\ -1\leq\mu<0  \\\\
+\end{cases},$$ where $c\geq 0$ and $a>0$. Moreover, $c=0$ represents a typical soft classifier and $c\rightarrow\infty$ represents a hard classifier, which is classical SVM. Distance Weighted Discriminant (DWD) is a sepecial case with $c=1$ and $c=1$.
+
+A nice property of MLUM is Fisher consistent with $c\in[0, \infty)$, $a>0$ and $\gamma\in[0, 1]$. We denote conditional $V$$-$loss as $S\left(\boldsymbol{f}, \boldsymbol{x}\right)=\sum\limits\_{j=1}^kV\left(\boldsymbol{f}, j\right)P\_j\left(\boldsymbol{x}\right)$. Then fisher consistency means given any $\boldsymbol{P}\left(\boldsymbol{x}\right)$, the minimizer $\boldsymbol{f}^\ast(\boldsymbol{x})=\left(f^\ast\_1\left(\boldsymbol{x}\right), \cdots, f^\ast\_k\left(\boldsymbol{x}\right))\right)$ of $S\left(\boldsymbol{f}, \boldsymbol{x}\right)$ is such that $\mathop{\arg\max}\limits\_{j}P\_j\left(\boldsymbol{x}\right)=\mathop{\arg\max}\limits\_{j}f^\ast\_j\left(\boldsymbol{x}\right)$. Theorem 3 gives the probability estimation formula for MLUM with any finite $c$ and the strategies to scale probabilities, where they outsides the range $[0, 1]$ when $\gamma\neq 1$, such that the sum is $1$.
+
+Denote excess risk ($0-1$ loss) as $R\left(f\right)-R^\ast$, where $f$ is theoretical minimizer to $0-1$ loss in function space (may be restricted by regularization), $R\left(f\right)$ is expected loss of $f$ and $R^\ast$ is Bayes error. Likewise, define $Q\left(\boldsymbol{f}\right)-Q^\ast$ as excess $V$-risk, where $Q^\ast=\inf Q\left(\boldsymbol{f}\right)$ (enlarge the function space until get the infimum or no restriction).
+
+
 
 
 
