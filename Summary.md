@@ -1,4 +1,4 @@
-#### Content
+### Content
 * [Support Vector Machines with a Reject Option](#SVMwRO)
 * [Multicategory Support Vector Machines](#MSVM)
 * [On Reject and Refine Options in Multicategory Classification](#ORaROiMC)
