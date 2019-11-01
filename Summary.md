@@ -1,12 +1,18 @@
 #### Content
+* [Support Vector Machines with a Reject Option](#SVMwRO)
 * [Multicategory Support Vector Machines](#MSVM)
+* [On Reject and Refine Options in Multicategoory Classification](#ORaROiMC)
+* [Multicategory Large-Margin Unified Machines](#MLMUM)
+* [Learning Confidence Sets using Support Vector Machines](#LCSuSVM)
 
 
 
-#
+<h2 id="SVMwRO">
+ 
 ### [Support Vector Machines with a Reject Option](https://arxiv.org/pdf/1201.1140.pdf) 
 <p align="right"> Oct. 12, 2019 </p>
 
+</h2>
 
 
 <h2 id="MSVM"> 
@@ -26,9 +32,9 @@ Implenting SVMs or MSVM in an asymetotically efficient manner is dependent on ch
 </h2>
 
 
-
-#
-### [On Reject and Refine Options in Multicategoory Classification](https://arxiv.org/pdf/1701.02265.pdf) 
+<h2 id="ORaROiMC">
+ 
+### [On Reject and Refine Options in Multicategory Classification](https://arxiv.org/pdf/1701.02265.pdf) 
 <p align="right"> Oct. 17, 2019 </p>
 
 This paper proposed not only multicategory classification problem with reject option (like on binary SVM with reject option) but also with refine option. Assume there are $k$ classes in the dataset, for observations in the reject region, the classfier spits out the whole class set $\\{1, 2, \cdots, k\\}$. For those in refine regions, it outputs a subset of the whole class set. So, there is no refine option in binary classification cases. Moreover, compared with classification with only reject option, the proposed method has more cautious prediction on the boundries among several classes, rather than just giving a definite result for points adjacent to boundries.
@@ -63,9 +69,10 @@ Next part refers to convergence of the excess $\ell $-$ $risk in linear learning
 In numerical studies, compared with regular classier (outputs definite label for each obseravtion) and classifier with only reject option, the classifier with reject and refine option performs quite well by introducing reject and refine regions. Note there is no misclassification in reject rejoin and we report the mis-refinement rate in refine regions, which is defined as the porpotion of observations whose true labels are not in the refine sets.
 
 In conclusion, when the cost for misclassification is too high to bear, it may be wise to do cautiously, like, with reject and refine options. For those confusable observations in refine region, we need more information or index to give a more confident result. Moreover, many other loss functions and penalties can be incorperated into this framwork for further needs.
+</h2>
 
+<h2 id="MLMUM">
 
-#
 ### [Multicategory Large-Margin Unified Machines](http://www.jmlr.org/papers/volume14/liu13a/liu13a.pdf) 
 <p align="right"> Oct. 22, 2019 </p>
 
@@ -79,9 +86,10 @@ Because the drawback of some multicategory classification methods like, one-vers
 A nice property of MLUM is Fisher consistent with $c\in[0, \infty)$, $a>0$ and $\gamma\in[0, 1]$. We denote conditional $V$$-$loss as $S\left(\boldsymbol{f}, \boldsymbol{x}\right)=\sum\limits\_{j=1}^kV\left(\boldsymbol{f}, j\right)P\_j\left(\boldsymbol{x}\right)$. Then fisher consistency means given any $\boldsymbol{P}\left(\boldsymbol{x}\right)$, the minimizer $\boldsymbol{f}^\ast(\boldsymbol{x})=\left(f^\ast\_1\left(\boldsymbol{x}\right), \cdots, f^\ast\_k\left(\boldsymbol{x}\right)\right)$ of $S\left(\boldsymbol{f}, \boldsymbol{x}\right)$ is such that $\mathop{\arg\max}\limits\_{j}P\_j\left(\boldsymbol{x}\right)=\mathop{\arg\max}\limits\_{j}f^\ast\_j\left(\boldsymbol{x}\right)$. Theorem 3 gives the probability estimation formula for MLUM with any finite $c$ and the strategies to scale probabilities, where they outsides the range $[0, 1]$ when $\gamma\neq 1$, such that the sum is $1$.
 
 Denote excess risk ($0-1$ loss) as $R\left(f\right)-R^\ast$, where $f$ is theoretical minimizer to $0-1$ loss in function space (may be restricted by regularization), $R\left(f\right)$ is expected loss of $f$ and $R^\ast$ is Bayes error. Likewise, define $Q\left(\boldsymbol{f}\right)-Q^\ast$ as excess $V$-risk, where $Q^\ast=\inf Q\left(\boldsymbol{f}\right)$ (enlarge the function space until get the infimum or no restriction).
+</h2>
 
-
-#
+<h2 id="LCSuSVM">
+ 
 ### [Learning Confidence Sets using Support Vector Machines](https://papers.nips.cc/paper/7741-learning-confidence-sets-using-support-vector-machines.pdf) 
 <p align="right"> Oct. 31, 2019 </p>
 
@@ -94,7 +102,7 @@ Additionally, this kind of truncted hinge loss function is also FIsher consisite
 In numerical study, they compare the empirical embiguity under proposed method with that under other soft and hard classifiers like, logistic regression with $\ell_2$ penalty, kernel logistic regression, kNN, rf, MSVM and k-binary-SVM, while tuning the non-coverage rate to be same. When non-coverage rate is low, the proposed method is better than plug-in methods and other hard classifiers. When non-coverage rate grows up, it still significantly dominates other hard classifiers or close to the best soft method. In high-dimensional data, this proposed approach outperforms than plug-in method since the density estimation is a problem in this situaution.
 
 What I learned: The goal of classification with reject and refine option is minimizing the loss function by introducing reject and refine rejoin while that of confidence set learning is minimizing the ambiguity while controlling the misclassification. For non-convex loss in this paper, we can consider to utilize DC alogrithm ([Le Thi Hoai and Tao, 1997](https://s3.amazonaws.com/academia.edu.documents/49613176/a_3A100828841171020161015-29005-1cjqf12.pdf?response-content-disposition=inline%3B%20filename%3DSolving_a_class_of_linearly_constrained.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWOWYYGZ2Y53UL3A%2F20191101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191101T040753Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=27323f75b624bb76b04b93894057b1670f926906563345bcfa2551ab2753af29); [Wu and Liu, 2007](https://stat-or.unc.edu/files/2016/04/07_11.pdf)).
-
+</h2>
 
 
 
