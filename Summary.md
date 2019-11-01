@@ -73,7 +73,19 @@ A nice property of MLUM is Fisher consistent with $c\in[0, \infty)$, $a>0$ and $
 Denote excess risk ($0-1$ loss) as $R\left(f\right)-R^\ast$, where $f$ is theoretical minimizer to $0-1$ loss in function space (may be restricted by regularization), $R\left(f\right)$ is expected loss of $f$ and $R^\ast$ is Bayes error. Likewise, define $Q\left(\boldsymbol{f}\right)-Q^\ast$ as excess $V$-risk, where $Q^\ast=\inf Q\left(\boldsymbol{f}\right)$ (enlarge the function space until get the infimum or no restriction).
 
 
+#
+### [Learning Confidence Sets using Support Vector Machines](https://papers.nips.cc/paper/7741-learning-confidence-sets-using-support-vector-machines.pdf) 
+<p align="right"> Oct. 31, 2019 </p>
 
+This paper proposed a method to do set-valued multicategory classification with SVM. A little different from other set-valued prediction methods like, classification with reject and refine option, not only it gives coverage guarantee for classification (class-specific accuracy -- confidence), but also try to minimize the ambiguity -- efficiency, which refers the expected cardinality ($\geq 1$) of prediction set for a random observation.
+
+We can convert non-coverage probability in constraint and expected cardinality into forms with $0-1$ loss function. However, we instead use certain surrogate loss upper bounding $0-1$ loss to do optimization. For minimizing the objective function, it use DC algorithm since the loss function is not convect. For the non-coverage constraint, they add some weights on loss to approximate $0-1$ loss.
+
+Additionally, this kind of truncted hinge loss function is also FIsher consisitent. And the excess ambiguity measured under the surrogate loss can bound that measured under $0-1$ loss. For the former quantity, which can be decomposed into estimate error and approximate error, they prove the estimate error is $O(n^{-1/2})$ when the class number is fixed. Then the expected ambiugity under traning data will converge to the ambiguity induced by inifinite sample. Moreover, for the empirical non-coverage rate computed under weighted hige loss will also converge to the preset value -- class specific misclassification error.
+
+In numerical study, they compare the empirical embiguity under proposed method with that under other soft and hard classifiers like, logistic regression with $\ell_2$ penalty, kernel logistic regression, kNN, rf, MSVM and k-binary-SVM, while tuning the non-coverage rate to be same. When non-coverage rate is low, the proposed method is better than plug-in methods and other hard classifiers. When non-coverage rate grows up, it still significantly dominates other hard classifiers or close to the best soft method. In high-dimensional data, this proposed approach outperforms than plug-in method since the density estimation is a problem in this situaution.
+
+What I learned: The goal of classification with reject and refine option is minimizing the loss function by introducing reject and refine rejoin while that of confidence set learning is minimizing the ambiguity while controlling the misclassification. For non-convex loss in this paper, we can consider to utilize DC alogrithm ([Le Thi Hoai and Tao, 1997](https://s3.amazonaws.com/academia.edu.documents/49613176/a_3A100828841171020161015-29005-1cjqf12.pdf?response-content-disposition=inline%3B%20filename%3DSolving_a_class_of_linearly_constrained.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWOWYYGZ2Y53UL3A%2F20191101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191101T040753Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=27323f75b624bb76b04b93894057b1670f926906563345bcfa2551ab2753af29); [Wu and Liu, 2007](https://stat-or.unc.edu/files/2016/04/07_11.pdf)).
 
 
 
