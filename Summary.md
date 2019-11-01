@@ -1,5 +1,5 @@
 ## Content
-[Multicategory Support Vector Machines](# MSVM)
+<h2 id="MSVM">Multicategory Support Vector Machines</h2>
 
 
 #
@@ -7,7 +7,7 @@
 <p align="right"> Oct. 12, 2019 </p>
 
 
-<h2 id="MSVM">Multicategory Support Vector Machines</h2>
+
   
 #
 ### [Multicategory Support Vector Machines](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.129.3020&rep=rep1&type=pdf)
