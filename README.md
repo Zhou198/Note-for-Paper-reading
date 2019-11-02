@@ -11,7 +11,7 @@ persevering, to be supereme. Keep rejoicing in your repeated routines O(∩_∩)
 
 <p align="center"> ML class -- by Jon Carter </p>
 
-*[1] [https://www.kdnuggets.com/2017/09/cartoon-machine-learning-class.html](https://www.kdnuggets.com/2017/09/cartoon-machine-learning-class.html)
+[1] [https://www.kdnuggets.com/2017/09/cartoon-machine-learning-class.html](https://www.kdnuggets.com/2017/09/cartoon-machine-learning-class.html)
  
  
 
