@@ -7,4 +7,4 @@ persevering, to be supereme. Keep rejoicing in your repeated routines O(∩_∩)
 
 
 
-<div align=center> ![ML class -- by Jon Carter] <img src="https://www.kdnuggets.com/images/cartoon-machine-learning-class.jpg" width="40%" height="40%"> </div>
+<div align=center>![ML class -- by Jon Carter]<img src="https://www.kdnuggets.com/images/cartoon-machine-learning-class.jpg" width="40%" height="40%"> </div>
