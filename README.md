@@ -9,9 +9,9 @@ persevering, to be supereme. Keep rejoicing in your repeated routines O(∩_∩)
  <div align=center><img src="https://www.kdnuggets.com/images/cartoon-machine-learning-class.jpg" width="40%" height="40%"></div>
 
 
-<p align="center"> ML class -- by [Jon Carter](https://www.kdnuggets.com/2017/09/cartoon-machine-learning-class.html) </p>
+<p align="center"> ML class -- by Jon Carter </p>
 
- 
+*[1] [https://www.kdnuggets.com/2017/09/cartoon-machine-learning-class.html](https://www.kdnuggets.com/2017/09/cartoon-machine-learning-class.html)
  
  
 
