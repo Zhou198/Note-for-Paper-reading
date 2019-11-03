@@ -4,6 +4,7 @@
 * [On Reject and Refine Options in Multicategory Classification](#ORaROiMC)
 * [Multicategory Large-Margin Unified Machines](#MLMUM)
 * [Learning Confidence Sets using Support Vector Machines](#LCSuSVM)
+* [Least Ambiguous Set-Valued Classifiers with Bounded Error Levels](#LABEL)
 
 
 
@@ -104,10 +105,22 @@ In numerical study, they compare the empirical embiguity under proposed method w
 What I learned: The goal of classification with reject and refine option is minimizing the loss function by introducing reject and refine rejoin while that of confidence set learning is minimizing the ambiguity while controlling the misclassification. For non-convex loss in this paper, we can consider to utilize DC alogrithm ([Le Thi Hoai and Tao, 1997](https://s3.amazonaws.com/academia.edu.documents/49613176/a_3A100828841171020161015-29005-1cjqf12.pdf?response-content-disposition=inline%3B%20filename%3DSolving_a_class_of_linearly_constrained.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWOWYYGZ2Y53UL3A%2F20191101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191101T040753Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=27323f75b624bb76b04b93894057b1670f926906563345bcfa2551ab2753af29); [Wu and Liu, 2007](https://stat-or.unc.edu/files/2016/04/07_11.pdf)).
 </h2>
 
+<h2 id="LABEL">
 
+### [Least Ambiguous Set-Valued Classifiers with Bounded Error Levels](https://arxiv.org/pdf/1609.00451.pdf) 
+<p align="right"> Nov. 3, 2019 </p>
 
+Similar to Learning Confidence Set, LABEL method also minimizes the total ambiguity under controlling total or class-specific coverage probability. This proposed method constructed by conformal prediction, where the conformal score are obtained through estimating $p(y|x)$ (plug-in method). It outputs the desired prediction sets by increasing the class regions via decreasing thresholds. Moreover, it does not assume there is no null-region in feature space at first, although at the last step it will be covered by some methods if the null regions actually exists at first because of some reasons. However, for prior method, the defualt assumption at begining is the feature space is only covered by classes without null region because the setting in loss function already guarantees there definitely exists overlap. Also, it minimizes the ambiguity -- a surrogate loss function under the constraint -- non-coverage rate, which implemented with a hard classifier -- multicategory SVM.
 
+Several approaches are mentioned when estimating $p(y|x)$, like regularized multinomial logistic regression, kNN, local polynomial estimator (covers kernel estimation). To reduce the computation expensiveness, it adopts splied-conformal inference, where data is splitted into $\mathcal{I}_1$ used to estimate formula of $\hat p(y|x)$ and $\mathcal{I}_2$ used to find conformal scores.
 
+If there is a null region at first, it can be covered by asigning an arbitrary label for each observation in that region. However, this assumes automatically thereis no set-valued class, which sometimes is invalid. The accretive completion method remedies above defect, where we should notice the completion rates are not same for each class.
+
+For the numerical study part, in order to compare LABEL and Classification with Regect Option (CWR), we should set the non-coverage rate as the misclassification error minimized from CWR and then observe the ambiguities in these methods. Satisfyingly, LABEL has smaller ambiguity while CWR has an ambiguous region with whole class. Actually, I think the ambiguous regions produced by LABEL can be viewed as refine option.  
+
+What I understand: Several potential reasons cause null region: 1) non-coverage rate is too large; 2) data is sell-separated and 3) there exists outliers far away from classes. However, in my opinion, if we allow the null region exists, there is no step for minimizing ambiguity when using comformal scores to set coverage probability. Moreover, we can take Classification with Reject and Refine Option as a candidate in the comparison part.
+
+</h2>
 
 
 
