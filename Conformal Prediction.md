@@ -1,6 +1,6 @@
 Conditional conformal predictor:
 
-Inductive conformal predictor: Split a training set into a proper training set and a calibration set, where the former is used to find out a socre function and the latter is used to create a buntch of socres and then be compared with that of a upcoming data.
+Inductive conformal predictor (see the method provided by Lei Jing): Split a training set into a proper training set and a calibration set, where the former is used to find out a socre function and the latter is used to create a buntch of socres and then be compared with that of an upcoming data.
 
 
 
