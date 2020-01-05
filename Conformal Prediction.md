@@ -4,7 +4,7 @@
 
 <h2 id="#CPCSCSL">
 
-### [Consistency of plug-in confidence sets for classification in semi-supervised learning](https://arxiv.org/pdf/1507.07235.pdf) 
+### [Consistency of Plug-in Confidence Sets for Classification in Semi-supervised Learning](https://arxiv.org/pdf/1507.07235.pdf) 
 <p align="right"> Jan. 4, 2020 </p>
 
 Not assigining label for an instance is better than giving a non-confident prediction when wrong classification may lead to huge cost. Therefore, this paper proposed a method, level-$\varepsilon$-confidence sets, to give confident predictions in the binary classification cases. Many works are related to this method, like Conformal Prediction (CP) and Classification with Reject Option (CRO), even if they have different focuses.
