@@ -27,5 +27,11 @@ Later, Lei and Wasserman 2013 studied more about validity and efficiency under t
 
 I think the procedure of constructing local validity is similar to Venn prediction and maybe we can use other scores from hard classifiers instead of plug-in method because probability estimation is difficult in the high dimensional setting.
 
+Sometimes conditional probability $\hat\eta(x)$ from plug-in methods is not an accurate approxmation to the truth or not smooth, it will fail our inferences. Lei 2014 proposed a robust method, splitting conformal inference, to impove the robustness as well as computational efficiency frequently mentioned in futher reseraches. In this paper, he applied plug-in methods on a score function for binary classification. One assumption is that the prediction region forms the whole feature space (there exists overlap but no null region), which can be guaranteed when taking thresholds by a trick. The potential extentiona are using other scores (monoton functions of $\eta$).
+
+Following that, Sadinle, Lei and Wasserman 2017 generalized the work to a multicategory setting from binary one. Moreover, they dropped the restrication of prediction region forming the whole space at first. However, in order to satisfying that requirement, some methods are applied for filling null regions, i.e., filling with baseline classifer and accretive completion. The former is easy but not optimal
+while the latter can minimize the cardinality of prediction set although the procedure is complicated.
+
+some optimal classifiers can also output empty prediction, i.e, null region, when the preset significan level is too low or the dataset is well-seperating.
 
 #### $\varepsilon$-Confidence Sets Learning
