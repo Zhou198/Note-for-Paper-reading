@@ -26,7 +26,7 @@ Later, Lei and Wasserman 2013 studied more about validity and efficiency under t
 
 I think the procedure of constructing local validity is similar to Venn prediction and maybe we can use other scores from hard classifiers instead of plug-in method because probability estimation is difficult in the high dimensional setting.
 
-
+Hechtlinger et al. 2019 argued the difference between label and object conditional densities and used the former as conformal score in the framework, which is better for outlier detection. Since this kind of score is class-independent to others, it may igonre the relations among classes. One potential modification is to redefine a label conditional density related to other classes.
 
 #### Confidence Sets Learning
 
@@ -41,7 +41,7 @@ some optimal classifiers can also output empty prediction, i.e, null region, whe
 
 Although plug-in method is straightforward intuitively, high dimensional setting makes it difficult and sometimes true bayes rule still cannot guarantee the prediction is not a null region. Therefore, Wang and Qiao 2018, 2019 extended above two works to counterparts with SVMs and solved the optimization with surrogate hinge losses. The loss functions they constructed satisfies the assumption of the whole feature space. Theoretically, it also shown the result is fisher consistent.
 
-Denis and Hebiri 2015, 2017 studied dual problems of Lei 2014 and Sadinle et al. 2017, i.e., minimizing the missclassification error while controling the size of prediction set. In binary setting, the prediction set size is identical to rejection probability or to classifying probability. They used the estimation of function related $\eta$ to search the threshold under the controled classifying proportion, where it does not need the information of label and hence makes it invovled with semi-supervised learning. In multicategory setting, they generalized $\eta$ to other score functions. In my understanding, there might exist a problem if we the score function without label to define a prediction set.
+Denis and Hebiri 2015, 2017 studied dual problems of Lei 2014 and Sadinle et al. 2017, i.e., minimizing the missclassification error while controling the size of prediction set. In binary setting, the prediction set size is identical to rejection probability or to classifying probability. They used the estimation of function related $\eta$ to search the threshold under the controled classifying proportion, where it does not need the information of label and hence makes it invovled with semi-supervised learning. In multicategory setting, they generalized $\eta$ to other score functions. In my understanding, there might exist a problem if we use the score function without label to define a prediction set.
 
 
 
