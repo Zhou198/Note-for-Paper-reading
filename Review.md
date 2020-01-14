@@ -32,7 +32,6 @@ I think the procedure of constructing local validity is similar to Venn predicti
 
 This framework is related to conformal prediction and Lei 2014 proposed the notion of confidence, which exactly is conditional label validty and then conformal prediction is equivalent to confidence set learning when the former deals with class validity instead of total validity (I will check this understanding with my professor). A little difference from conformal prediction is here we have an assumption that prediction regions form the whole feature space (there exists overlap but no null region).
 
-
 Sometimes conditional probability $\hat\eta(x)$ from plug-in methods is not an accurate approxmation to the truth or not smooth, it will fail our inferences. Lei 2014 proposed a robust method, splitting conformal inference, to impove the robustness as well as computational efficiency frequently mentioned in futher reseraches. In this paper, he applied plug-in methods on a score function for binary classification. Certainly, the assumption of no null region can be guaranteed when taking thresholds by a trick. The potential extentiona are using other scores (monoton functions of $\eta$).
 
 Following that, Sadinle, Lei and Wasserman 2017 generalized the work to a multicategory setting from binary one. Moreover, they dropped the restrication of prediction region forming the whole space at first. However, in order to satisfying that requirement, some methods are applied for filling null regions, i.e., filling with baseline classifer and accretive completion. The former is easy but not optimal
@@ -41,4 +40,17 @@ while the latter can minimize the cardinality of prediction set although the pro
 some optimal classifiers can also output empty prediction, i.e, null region, when the preset significan level is too low or the dataset is well-seperating.
 
 Although plug-in method is straightforward intuitively, high dimensional setting makes it difficult and sometimes true bayes rule still cannot guarantee the prediction is not a null region. Therefore, Wang and Qiao 2018, 2019 extended above two works to counterparts with SVMs and solved the optimization with surrogate hinge losses. The loss functions they constructed satisfies the assumption of the whole feature space. Theoretically, it also shown the result is fisher consistent.
+
+Denis and Hebiri 2015, 2017 studied dual problems of Lei 2014 and Sadinle et al. 2017, i.e., minimizing the missclassification error while controling the size of prediction set. In binary setting, the prediction set size is identical to rejection probability or to classifying probability. They used the estimation of function related $\eta$ to search the threshold under the controled classifying proportion, where it does not need the information of label and hence makes it invovled with semi-supervised learning. In multicategory setting, they generalized $\eta$ to other score functions. In my understanding, there might exist a problem if we the score function without label to define a prediction set.
+
+
+
+
+
+
+
+
+
+
+
 
