@@ -3,7 +3,7 @@ For traditional classification in machine learning, the task is assigning one la
 
 Based on above motovations, recently set-valued classifiers or confident predictions are developed. What I have learned up to now, totally, there are 3 different and related methods called Classification with Reject Option (CRO), Conformal Prediction (CP) and Confidence Sets Learning (CSL).
 
-$\"{e}$
+$\\\"{e}$
 
 #### Classification with Reject Option
 Herbei and Wegkamp 2006 studied binary classification equipped with reject option, where we do not give decision for those observations with conditional probability close to $\frac{1}{2}$. Different from traditional binary classification, now the risk is defined by misclassification error as well as rejection probability with preset cost $d$. Moreover, they generalized theories for pulg-in rules and emprical risk minimizers. 
