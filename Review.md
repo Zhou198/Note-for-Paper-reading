@@ -3,7 +3,6 @@ For traditional classification in machine learning, the task is assigning one la
 
 Based on above motovations, recently set-valued classifiers or confident predictions are developed. What I have learned up to now, totally, there are 3 different and related methods called Classification with Reject Option (CRO), Conformal Prediction (CP) and Confidence Sets Learning (CSL).
 
-$\/"{e}$
 
 #### Classification with Reject Option
 Herbei and Wegkamp 2006 studied binary classification equipped with reject option, where we do not give decision for those observations with conditional probability close to $\frac{1}{2}$. Different from traditional binary classification, now the risk is defined by misclassification error as well as rejection probability with preset cost $d$. Moreover, they generalized theories for pulg-in rules and emprical risk minimizers. 
@@ -29,7 +28,7 @@ Later, Lei and Wasserman 2013 studied more about validity and efficiency under t
 I think the procedure of constructing local validity is similar to Venn prediction and maybe we can use other scores from hard classifiers instead of plug-in method because probability estimation is difficult in the high dimensional setting.
 
 Hechtlinger et al. 2019 argued the difference between label and object conditional densities and used the former as conformal score in the framework, which is better for outlier detection. Since this kind of score is class-independent to others, it may igonre the relations among classes. One potential modification is to redefine a label conditional density related to other classes. Similarly, 
-D$\''{u}$mbgen et al.2008 discussed the difference between above two conditional density when choosing score functions. Object conditional density means we assume there is no outerliers although the prediction could be a null region while object conditional density does not assume that. Thereforem they introduce the weight for outliers to compromise above situations when using object conditional density. Moreover, they talked something about the finite sample validity when using 3 different methods dealing with computation efficiency of p-value. However, up to now, I think the data-splitting method Lei proposed is much more perfect.
+Dümbgen et al.2008 discussed the difference between above two conditional density when choosing score functions. Object conditional density means we assume there is no outerliers although the prediction could be a null region while object conditional density does not assume that. Thereforem they introduce the weight for outliers to compromise above situations when using object conditional density. Moreover, they talked something about the finite sample validity when using 3 different methods dealing with computation efficiency of p-value. However, up to now, I think the data-splitting method Lei proposed is much more perfect.
 
 #### Confidence Sets Learning
 
