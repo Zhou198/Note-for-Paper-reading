@@ -1,12 +1,12 @@
 ### Review of confident predictions
 For traditional classification in machine learning, the task is assigning one label for each observations. However, sometimes observations from different classes may share similiar features or they are fairly close, espectially when the number of class in a dataset is large. In this situation, single-label predition is less efficient and might give higher error. To tackle this kind of trouble, it is better to give a set of possible labels, particularly when missclassification will recur high cost.
 
-Based on above motovations, recently set-valued classifiers or confident predictions are developed. What I have learned up to now, totally, there are 3 different and related methods called Classification with Reject Option (CRO), Conformal Prediction (CP) and $\varepsilon$-Confidence Sets Learning (CSL).
+Based on above motovations, recently set-valued classifiers or confident predictions are developed. What I have learned up to now, totally, there are 3 different and related methods called Classification with Reject Option (CRO), Conformal Prediction (CP) and $Confidence Sets Learning (CSL).
 
 #### Classification with Reject Option
 Herbei and Wegkamp 2006 studied binary classification equipped with reject option, where we do not give decision for those observations with conditional probability close to $\frac{1}{2}$. Different from traditional binary classification, now the risk is defined by misclassification error as well as rejection probability with preset cost $d$. Moreover, they generalized theories for pulg-in rules and emprical risk minimizers. 
 
-However, sometimes it is hard to estimate a probability like in high dimensional feature space. Bartlett and Wegkamp 2008 used hard classifiers (with surrogate Hinge Loss ) instead of soft classifiers (conditional probability estimation) to study CRO. One of most advatange is the modified risk involved with Hinge Loss can be efficiently minimized because original risk is not convex. Also, the excess risk can be bounded by excess $\phi$-risk. Additionally, they proved the classification result is (Fisher) consistent when sample size tends to infinite. Moreover, it was shown that the convergence rate is fast when $\eta(x)$ is far away from a threshold.
+However, sometimes it is hard to estimate a probability like in high dimensional feature space. Bartlett and Wegkamp 2008 used hard classifiers (with surrogate Hinge Loss) instead of soft classifiers (conditional probability estimation) to study CRO. One of most advatange is the modified risk involved with Hinge Loss can be efficiently minimized because original risk is not convex. Also, the excess risk can be bounded by excess $\phi$-risk. Additionally, they proved the classification result is (Fisher) consistent when sample size tends to infinite. Moreover, it was shown that the convergence rate is fast when $\eta(x)$ is far away from a threshold.
 
 Without reject option, Hinge Loss in traditional binary classification is fisher consistent. For CPO, Yuan and Wegkamp 2010 then extended Hinge Loss to some other convex loss functions (those should satisfy some conditons) and found they are also asymptotically consistent.
 
@@ -21,17 +21,24 @@ Lei, Robins and Wasserman 2011 introduced a nonparametric smoothing method, name
 
 Comment for sandwitch approximation: Different from general conformal prediction, when preserving finite sample validity, this method also avoids data augmentation (we can see from the quantile) and then improve the computaion efficiency.
 
-Comment for validity: Based on comformal prediction framework when assumption holds, the asymptotic validity is always guarantted. However, finite sample validity is only hold on-line comformal prediction setting which is originally provided. Later this framework is extened to off-line setting, where, generally, we cannot guarantte the finite sample validity (it is also mentioned in Algorithmic learning in a random world by Vovk, Page 111).
-
+Comment for validity: Based on comformal prediction framework when assumption holds, the asymptotic validity is always guarantted. However, finite sample validity is only hold on-line comformal prediction setting which is originally provided. Later this framework is extened to off-line setting, where, generally, we cannot guarantte the finite sample validity (it is also mentioned in Algorithmic learning in a random world by Vovk, Page 111). 
 Later, Lei and Wasserman 2013 studied more about validity and efficiency under the density score. When simply applying sandwitch approximation to $Z=(X, Y)$ from $Z=Y$, it is not efficient although the finite sample (joint) validity still holds. Anther simliar notion is conditional validity. Unfortunately, we cannot gaurantee conditional validity and asymptotic efficiency at the same time. However, if a datset is partationed into $\\{A_k\\}\_{k\in \mathbb{N}^+}$, each of which is used to estimate kernel density for potential $Y$ (or $(X, Y)$ or $Y|X$), for prediction sets obtained by above sandwitch approximation over all partations, thus finite sample local validity as well as asymptotic conditional validity can be achieved. when talking about convergence rate for asymptotic efficiency, besides the requriement of smoothness for density estimation, it is also related to the partation (of course we can treat it as a parameter to be tuned).
 
 I think the procedure of constructing local validity is similar to Venn prediction and maybe we can use other scores from hard classifiers instead of plug-in method because probability estimation is difficult in the high dimensional setting.
 
-Sometimes conditional probability $\hat\eta(x)$ from plug-in methods is not an accurate approxmation to the truth or not smooth, it will fail our inferences. Lei 2014 proposed a robust method, splitting conformal inference, to impove the robustness as well as computational efficiency frequently mentioned in futher reseraches. In this paper, he applied plug-in methods on a score function for binary classification. One assumption is that the prediction region forms the whole feature space (there exists overlap but no null region), which can be guaranteed when taking thresholds by a trick. The potential extentiona are using other scores (monoton functions of $\eta$).
+
+
+#### Confidence Sets Learning
+
+This framework is related to conformal prediction and Lei 2014 proposed the notion of confidence, which exactly is conditional label validty and then conformal prediction is equivalent to confidence set learning when the former deals with class validity instead of total validity (I will check this understanding with my professor). A little difference from conformal prediction is here we have an assumption that prediction regions form the whole feature space (there exists overlap but no null region).
+
+
+Sometimes conditional probability $\hat\eta(x)$ from plug-in methods is not an accurate approxmation to the truth or not smooth, it will fail our inferences. Lei 2014 proposed a robust method, splitting conformal inference, to impove the robustness as well as computational efficiency frequently mentioned in futher reseraches. In this paper, he applied plug-in methods on a score function for binary classification. Certainly, the assumption of no null region can be guaranteed when taking thresholds by a trick. The potential extentiona are using other scores (monoton functions of $\eta$).
 
 Following that, Sadinle, Lei and Wasserman 2017 generalized the work to a multicategory setting from binary one. Moreover, they dropped the restrication of prediction region forming the whole space at first. However, in order to satisfying that requirement, some methods are applied for filling null regions, i.e., filling with baseline classifer and accretive completion. The former is easy but not optimal
 while the latter can minimize the cardinality of prediction set although the procedure is complicated.
 
 some optimal classifiers can also output empty prediction, i.e, null region, when the preset significan level is too low or the dataset is well-seperating.
 
-#### $\varepsilon$-Confidence Sets Learning
+Although plug-in method is straightforward intuitively, high dimensional setting makes it difficult and sometimes true bayes rule still cannot guarantee the prediction is not a null region. Therefore, Wang and Qiao 2018, 2019 extended above two works to counterparts with SVMs and solved the optimization with surrogate hinge losses. The loss functions they constructed satisfies the assumption of the whole feature space. Theoretically, it also shown the result is fisher consistent.
+
